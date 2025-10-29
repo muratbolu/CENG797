@@ -59,13 +59,30 @@ the aim of load-balancing the number of users a clusterhead serves.
 
 \subsection{Background}
 
-This section (1 page at most for background) provides the background information needed for the rest of your report to be understood.
+Trees are fundamental data structures that are useful in many areas of computer
+science. There are many types of trees that are suitable for various tasks, but
+all of them share a couple of traits. All trees have nodes that `point' (this
+can be described more formally) to other subtrees. Recursive definitions are
+natural and common for trees, similar to linked lists. The nodes may also
+contain some arbitrary data, which may or may not be related to the tree
+structure itself. The node that points to another node is called the parent of
+such node, and the reverse relationship is called the child. A node may have one
+or multiple children or none, but is generally considered that all nodes except
+one must have exactly one parent, and the node without parent is called the root
+node. One can see that assigning some nodes (most preferably some parent nodes)
+as clusterheads in the context of clustering is a natural use of the tree
+hierarchy.
 
 \subsection{Related Work}
 
-The perennial question: Should related work be covered near the beginning of the paper or near the end?
-\textbf{Beginning}: if it can be short yet detailed enough, or if it's critical to take a strong defensive stance about previous work right away. In this case Related Work can be either a subsection at the end of the Introduction, or its own Section 2~\cite{Widom2006}. \textbf{End}: if it can be summarized quickly early on (in the Introduction or Preliminaries), or if sufficient comparisons require the technical content of the paper. In this case Related Work should appear just before the Conclusions, possibly in a more general section `Discussion and Related Work''~\cite{Widom2006}.
-
+In their survey of clustering algorithms, Yu and Chong \cite{Yu2005} mention
+load-balancing clustering techniques. Tree-based clustering can be considered a
+load-balancing technique because of the self-balancing properties of the
+underlying tree data structure used. Yu and Chong mention adaptive multi-hop
+clustering (AMC) and degree-load-balancing clustering (DLBC). In AMC, the
+clusters merge or split according to some lower and higher thresholds. In DLBC,
+the clusterheads degrade to an ordinary node if they serve too many nodes, and
+new clusters are created.
 
 \section{Main Contributions}
 
