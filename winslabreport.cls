@@ -28,7 +28,7 @@
 \RequirePackage{caption}
 
 % micro-typographic extension
-\RequirePackage{microtype}
+\RequirePackage[nopatch=footnote]{microtype}
 
 % set date format to "12 June 2013"
 \RequirePackage[UKenglish]{isodate}
@@ -221,11 +221,11 @@
 \renewcommand{\maketitle}{
     % front matter, except for Contributions and Summary, single line spacing
     \singlespacing
-        
+
     % front matter page numbers lower case roman
     % set the page numbers to be roman
     \pagenumbering{roman}
-        
+
     % set no page number in title page
     \thispagestyle{empty}
     \begin{center}
@@ -251,7 +251,7 @@
         \normalsize{\printprogram} \\
         \normalsize{\today}\\
         \vspace*{\baselineskip}
-        
+
     \end{center}
 }
 
@@ -314,13 +314,13 @@
 % redefine \section* without changing \section
 \let\old@section\section
 \WithSuffix\def\section*{
-    \ifx\next
-    \let\next\report@section@star
-    \else
-    \def\next{\report@section@star[]}
-    \fi
-    \next
-}
+  \ifx\next
+      \let\next\report@section@star
+  \else
+      \def\next{\report@section@star[]}
+  \fi
+  \next
+ }
 \def\report@section@star[#1]#2{
     \clearpage
     \ifthenelse
@@ -333,6 +333,7 @@
 % adjust glossary formatting
 \preto\printglossaries{
     \singlespacing
+    \glossarystyle{ieeestyle}
 }
 
 % adjust reference formatting
@@ -421,7 +422,6 @@
 % little helper command used to check font size
 %\newcommand{\thefontsize}{The current font size is: \f@size pt}
 
-\glossarystyle{ieeestyle}
 \makeglossaries
 
 
